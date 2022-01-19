@@ -59,12 +59,12 @@ p {
   background: transparent;
   padding: unset;
   font-weight: 900;
-  font-size: 23px;
+  font-size: 20px;
 }
 
 .weather-city .input-group input {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   border: none;
   padding: 0.4rem 0.4rem 0.4rem 0.7rem;
   transition: linear 0.5s ease;
