@@ -3,7 +3,9 @@ import CardItem from '../../atoms/CardItem'
 import WeatherItem from '../../molecouls/WeatherItem'
 
 interface WeatherDailyProps {
-  weather: any[],
+  weather: {
+    daily: any
+  },
   suhu: string
 }
 

@@ -5,7 +5,7 @@ import CardHighlights from '../../atoms/CardHighlights'
 interface AirPolutionProps {
     data: any,
     airPolution: {
-        list: any[]
+        list: any
     }
 }
 
