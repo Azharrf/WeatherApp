@@ -59,14 +59,14 @@ p {
   background: transparent;
   padding: unset;
   font-weight: 900;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .weather-city .input-group input {
   font-weight: 400;
   font-size: 14px;
   border: none;
-  padding: 0.4rem 0.4rem 0.4rem 0.7rem;
+  padding: 0.2rem 0.2rem 0.2rem 0.4rem;
   transition: linear 0.5s ease;
 }
 
@@ -115,7 +115,7 @@ p {
 }
 
 .weather-city .main-weather h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -138,6 +138,10 @@ p {
   height: 50%;
   font-size: 16px;
   font-weight: 500;
+}
+
+.weather-temp .table {
+  font-size: 14px;
 }
 
 .city {
@@ -174,7 +178,7 @@ p {
 
 .header h1 {
   flex: 1;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -228,8 +232,8 @@ p {
 }
 
 .week-weather .day-weather {
-  width: 135px;
-  height: 170px;
+  width: 120px;
+  height: 155px;
   background: white;
   border-radius: 13px;
   position: relative;
@@ -237,7 +241,7 @@ p {
 
 .week-weather .day-weather p {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .day-weather .day {
@@ -262,7 +266,7 @@ p {
 }
 
 .title-highlight {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   position: absolute;
   top: 0;
@@ -271,10 +275,10 @@ p {
 }
 
 .hightlight {
-  width: 330px;
-  height: 175px;
+  width: 290px;
+  height: 160px;
   padding: 20px;
-  top: 50px;
+  top: 45px;
   margin-bottom: 25px;
   background-color: white;
   border-radius: 10px;
@@ -287,7 +291,7 @@ p {
 }
 
 .hightlight h1 {
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 600;
 }
 
@@ -317,7 +321,7 @@ p {
 
 .semi-donut {
   width: 100%;
-  height: 72%;
+  height: 75%;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -328,8 +332,8 @@ p {
 .semi-donut .bar {
   position: absolute;
   top: 0;
-  width: 193px;
-  height: 193px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   box-sizing: border-box;
   border: 20px solid #f3f3f3;
