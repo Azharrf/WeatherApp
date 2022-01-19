@@ -83,6 +83,7 @@ p {
 }
 
 .weather-city .input-group .btn-close {
+  padding: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -224,7 +225,7 @@ p {
 
 .week-weather {
   width: 100%;
-  margin: 25px auto;
+  margin: 30px auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -384,7 +385,47 @@ p {
   display: none;
 }
 
+@media (max-width: 1280px) {
+  .highlight {
+    width: 270px;
+  }
+
+  .week-weather {
+    overflow-y: auto;
+  }
+
+  .week-weather .day-weather {
+    margin-right: 15px;
+    width: 130px;
+  }
+}
+
 @media (max-width: 1024px) {
+  .weather-city .main-weather img {
+    margin-left: -20px;
+  }
+
+  .weather-city .main-weather h3 {
+    font-size: 16px;
+  }
+
+  .weather-coludy img {
+    width: 40%;
+  }
+
+  .weather-rain {
+    font-size: 14px;
+  }
+
+  .weather-city {
+    padding: 30px;
+  }
+
+  .weather-temp {
+    overflow-y: auto;
+    font-size: 14px;
+  }
+
   .highlights {
     height: 410px;
   }
