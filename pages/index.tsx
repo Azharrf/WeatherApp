@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import { useCallback, useEffect, useState } from 'react'
+import { Slide, toast } from 'react-toastify'
 import Content from '../components/organism/content'
 import Sidebar from '../components/organism/sidebar'
 import { getLocation, getWeather } from '../services/weatherApi'
@@ -8,12 +9,20 @@ const Home: NextPage = () => {
   const [weather, setWeather] = useState()
   const [location, setLocation] = useState<any>()
   const [suhu, setSuhu] = useState('metric')
-  console.log('weather', weather)
 
   const getLoc = useCallback(async (value) => {
     const loct = await getLocation(value)
     if (!loct) {
-      alert('Kota tidak ditemukan, silahkan cari nama kota yang sesuai!')
+      toast.warning('Kota tidak ditemukan, silahkan cari nama kota yang sesuai!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        transition: Slide,
+      })
     } else {
       setLocation(loct.data)
       await getWeatherData(loct.data.coord.lat, loct.data.coord.lon, suhu)
@@ -36,7 +45,16 @@ const Home: NextPage = () => {
           getWeatherData(lat, lon, suhu)
         },
         (errorMessage) => {
-          alert(errorMessage)
+          toast.error('Geolocation tidak diizinkan untuk akses coord di browser ini!', {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            transition: Slide,
+          })
         },
       )
     }
@@ -44,7 +62,16 @@ const Home: NextPage = () => {
 
   const getWeatherSearch = async (value: string) => {
     if (value === null) {
-      alert('Silahkan masukan nama kota yang sesuai!')
+      toast.warn('Silahkan masukan nama kota yang sesuai!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        transition: Slide,
+      })
     } else {
       await getLoc(value)
     }
@@ -55,9 +82,11 @@ const Home: NextPage = () => {
     const dataItem = JSON.parse(dataLocal!)
     const { lat } = dataItem
     const { lon } = dataItem
-    getWeatherData(lat, lon, suhu)
-    setLocation(null)
-    console.log('close', lat, lon)
+
+    if (location) {
+      getWeatherData(lat, lon, suhu)
+      setLocation(null)
+    }
   }
 
   useEffect(() => {
