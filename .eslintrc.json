@@ -1,3 +1,92 @@
 {
-  "extends": "next/core-web-vitals"
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 13,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        ],
+        "react/react-in-jsx-scope": "off",
+        "react/function-component-definition": "off",
+        "arrow-body-style": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "react/no-unescaped-entities": "off",
+        "jsx-a11y/control-has-associated-label": "off",
+        "semi": [
+            "error",
+            "never"
+        ],
+        "react/jsx-no-useless-fragment": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/self-closing-comp": "off",
+        "linebreak-style": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "no-template-curly-in-string": "off",
+        "no-shadow": "off",
+        "no-unused-vars": "off",
+        "no-use-before-define": "off",
+        "max-len":"off",
+        "object-curly-newline":"off",
+        "jsx-a11y/heading-has-content": "off",
+        "no-undef":"off",
+        "no-unused-expressions":"off"
+    },
+    "settings": {
+        "import/extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+        ],
+        "import/parsers": {
+            "@typescript-eslint/parser": [
+                ".ts",
+                ".tsx"
+            ]
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        }
+    }
 }

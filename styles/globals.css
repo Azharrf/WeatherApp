@@ -1,16 +1,553 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  /* overflow-x: hidden; */
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+
+hr {
+  margin: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: unset;
+}
+
+.container,
+.side-left,
+.weather-city,
+.weather-prediksi {
+  height: 100vh;
+}
+
+.weather-city {
+  padding: 30px 40px;
+  position: relative;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.weather-city
+  .input-group
+  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  border-radius: unset;
+}
+
+.weather-city .input-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-city .input-group button {
+  border: none;
+  background: transparent;
+  padding: unset;
+  font-weight: 900;
+  font-size: 23px;
+}
+
+.weather-city .input-group input {
+  font-weight: 400;
+  font-size: 16px;
+  border: none;
+  padding: 0.4rem 0.4rem 0.4rem 0.7rem;
+  transition: linear 0.5s ease;
+}
+
+.weather-city .input-group input:focus {
+  box-shadow: none;
+}
+
+.weather-city .input-group .search-button {
+  padding: 8px 10px;
+  border-radius: 10px !important;
+  background-color: black !important;
+  color: white;
+  display: none;
+}
+
+.weather-city .input-group .btn-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 100% !important;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  z-index: 100;
+}
+
+.weather-city .main-weather {
+  height: max-content;
+}
+
+.weather-city .main-weather img {
+  min-width: 60%;
+  margin-left: -30px;
+}
+
+.weather-city .main-weather h1 {
+  font-size: 50px;
+  font-weight: 500;
+  display: inline-flex;
+}
+
+.weather-city .main-weather h1 span {
+  font-size: 20px;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.weather-city .main-weather h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.weather-city .main-weather h3 span {
+  color: rgb(0, 0, 0, 0.3);
+}
+
+.weather-city .main-weather .weather {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.weather-coludy img {
+  width: 30%;
+  margin-right: 5px;
+}
+
+.weather-rain {
+  height: 50%;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.city {
+  width: 100%;
+  height: 100px;
+  background-image: url("/image/nyc.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.city .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.city p {
+  color: white;
+  z-index: 100;
+  font-weight: 500;
+}
+
+/* Weather Prediksi */
+.weather-prediksi {
+  padding: 30px 40px;
+  background: #f7f7f9;
+}
+
+.header h1 {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.header .suhu-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  background: white;
+  margin: 0 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  transition: all 0.4s ease;
+}
+
+.header .suhu-btn:hover {
+  color: white;
+  background: black;
+}
+
+.header .suhu-btn.active {
+  color: white;
+  background-color: black;
+}
+
+.header .avatar {
+  width: 5%;
+  margin-left: 15px;
+  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.header img {
+  border-radius: 7px;
+  width: 100%;
+}
+
+.week-weather {
+  width: 100%;
+  margin: 25px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.week-weather .day-weather {
+  width: 135px;
+  height: 170px;
+  background: white;
+  border-radius: 13px;
+  position: relative;
+}
+
+.week-weather .day-weather p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.day-weather .day {
+  position: absolute;
+  top: 12px;
+}
+
+.day-weather .suhu {
+  position: absolute;
+  bottom: 12px;
+}
+
+.day-weather span {
+  margin-left: 5px;
+  color: rgb(0, 0, 0, 0.4);
+}
+
+.highlights {
+  width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.title-highlight {
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.hightlight {
+  width: 330px;
+  height: 175px;
+  padding: 20px;
+  top: 50px;
+  margin-bottom: 25px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+}
+
+.hightlight h3 {
+  font-size: 14px;
+  color: rgb(0, 0, 0, 0.3);
+}
+
+.hightlight h1 {
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.hightlight h1 span {
+  font-size: 18px;
+}
+
+.hightlight h2 {
+  font-size: 18px;
+}
+
+.hightlight h5 {
+  font-size: 12px;
+}
+
+.hightlight i {
+  width: 25px;
+  height: 25px;
+  color: blue;
+  border-radius: 50%;
+  border: 1px solid rgb(212, 212, 212);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.semi-donut {
+  width: 100%;
+  height: 72%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.semi-donut .bar {
+  position: absolute;
+  top: 0;
+  width: 193px;
+  height: 193px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 20px solid #f3f3f3;
+  border-bottom-color: #ffbf5e;
+  border-right-color: #ffbf5e;
+  transform: rotate(45deg);
+  transition: all 1s ease;
+}
+
+.hightlight .sunrise,
+.hightlight .sunset {
+  margin-top: 13px;
+}
+
+.hightlight .sunrise i,
+.hightlight .sunset i {
+  width: 30px;
+  height: 30px;
+  background: #fee04d;
+  border: 3px solid #fdc368;
+  color: white;
+}
+
+.progress {
+  position: absolute;
+  right: 10%;
+  width: 10px;
+  height: 75%;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.air-progress {
+  transition: all 2s ease;
+}
+
+.humidity-progress {
+  transition: all 1.5s ease;
+}
+
+.toast {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .highlights {
+    height: 410px;
+  }
+  .hightlight {
+    top: 50px;
+    max-width: 220px;
+  }
+  .week-weather {
+    overflow-x: scroll;
+  }
+  .week-weather .day-weather {
+    width: 120px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 884px) {
+  .weather-city .input-group input {
+    margin-right: 10px;
+    height: unset;
+  }
+
+  .weather-city .input-group .search-button {
+    display: block;
+  }
+
+  .weather-city .main-weather {
+    width: 20%;
+  }
+  .weather-city .main-weather img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .weather-city {
+    padding: 30px 16pt;
+    display: unset;
+    height: unset;
+  }
+
+  .weather-city .input-group input {
+    margin-right: 10px;
+    height: unset;
+  }
+
+  .weather-city .input-group .search-button {
+    display: block;
+  }
+
+  .weather-city .main-weather {
+    width: 40%;
+    position: absolute;
+    top: 17%;
+    left: 10px;
+  }
+
+  .weather-city .main-weather img {
+    width: 100%;
+  }
+
+  .weather-city .time {
+    z-index: 100;
+    margin: 40px 0 30px 45%;
+  }
+
+  .weather-city .time h1 {
+    font-size: 56px;
+    font-weight: 500;
+    margin-bottom: unset;
+  }
+  .weather-city .time h1 span {
+    font-size: 22px;
+  }
+  .weather-city .time h3 {
+    font-size: 16px;
+  }
+
+  .weather-city .weather-coludy {
+    width: 50%;
+    height: 50px;
+    position: absolute;
+    top: 73%;
+    left: 45%;
+    z-index: 100;
+    color: white;
+  }
+
+  .weather-city .weather-coludy img {
+    width: max-content;
+    height: 100%;
+    margin-right: 10px;
+  }
+
+  .weather-city .city {
+    margin-top: 30px;
+    justify-content: start !important;
+    align-items: center !important;
+  }
+  .weather-city .city p {
+    margin-left: 30px;
+  }
+
+  .weather-city .city .overlay {
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  .weather-prediksi {
+    height: 85vh;
+    padding: 30px 16pt;
+  }
+
+  .week-weather {
+    width: 100%;
+    min-height: 170px;
+    overflow-x: scroll;
+  }
+
+  .day-weather {
+    margin-right: 13px;
+  }
+
+  .highlights {
+    width: 100%;
+    height: max-content;
+    margin-bottom: 30px;
+  }
+
+  .hightlight {
+    max-width: 47.5%;
+    height: 130px;
+    padding: 15px;
+  }
+
+  .semi-donut {
+    height: 60px;
+    margin: auto;
+  }
+
+  .semi-donut .bar {
+    width: 120px;
+    height: 120px;
+    border: 20px solid #f3f3f3;
+    border-bottom-color: #ffbf5e;
+    border-right-color: #ffbf5e;
+  }
+
+  .semi-donut #uv-index {
+    position: absolute;
+    top: 28px;
+  }
+
+  .progress {
+    height: 80%;
+  }
+
+  .hightlight .sunrise i,
+  .hightlight .sunset i {
+    width: 25px;
+    height: 25px;
+  }
+
+  .hightlight h1 {
+    font-size: 30px;
+  }
+  .hightlight h5 {
+    font-size: 13px;
+  }
 }
