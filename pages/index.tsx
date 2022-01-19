@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import { useCallback, useEffect, useState } from 'react'
 import { Slide, toast } from 'react-toastify'
+import Head from 'next/head'
 import Content from '../components/organism/content'
 import Sidebar from '../components/organism/sidebar'
 import { getLocation, getWeather } from '../services/weatherApi'
@@ -102,12 +103,18 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <Sidebar onSearch={getWeatherSearch} onClose={closeSearch} data={weather} suhu={suhu} />
-        <Content data={weather} suhu={suhu} onClick={onSuhu} />
+    <>
+      <Head>
+        <title>Weather App</title>
+        <link rel="icon" href="/image/logo.png" type="image/x-icon" />
+      </Head>
+      <div className="container-fluid">
+        <div className="row">
+          <Sidebar onSearch={getWeatherSearch} onClose={closeSearch} data={weather} suhu={suhu} />
+          <Content data={weather} suhu={suhu} onClick={onSuhu} />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
