@@ -37,10 +37,13 @@ p {
   padding: 30px 40px;
   position: relative;
   background: #fff;
+}
+
+.weather-city .row {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
 }
 
 .weather-city
@@ -58,8 +61,8 @@ p {
   border: none;
   background: transparent;
   padding: unset;
-  font-weight: 900;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .weather-city .input-group input {
@@ -386,7 +389,7 @@ p {
 }
 
 @media (max-width: 1280px) {
-  .highlight {
+  .hightlight {
     width: 270px;
   }
 
@@ -443,7 +446,15 @@ p {
   }
 }
 
-@media (max-width: 884px) {
+@media (max-width: 885px) {
+  .weather-city {
+    height: auto;
+  }
+
+  .weather-city hr {
+    display: none;
+  }
+
   .weather-city .input-group input {
     margin-right: 10px;
     height: unset;
@@ -454,10 +465,72 @@ p {
   }
 
   .weather-city .main-weather {
-    width: 20%;
+    width: 30%;
+    margin-bottom: 25px;
   }
   .weather-city .main-weather img {
     width: 100%;
+  }
+
+  .weather-city .weather-coludy {
+    width: 50%;
+    height: 50px;
+    position: absolute;
+    top: 73%;
+    left: 50%;
+    z-index: 100;
+    color: white;
+  }
+
+  .weather-city .weather-coludy img {
+    width: max-content;
+    height: 100%;
+    margin-right: 10px;
+  }
+
+  .weather-temp {
+    position: absolute;
+    top: 27%;
+    right: 0;
+  }
+
+  .weather-city .main-weather h3 {
+    position: absolute;
+    top: 50%;
+  }
+
+  .weather-city .city {
+    margin-top: 30px;
+    justify-content: start !important;
+    align-items: center !important;
+    position: relative;
+  }
+
+  .weather-city .city p {
+    position: absolute;
+    left: 35%;
+  }
+
+  .weather-city .city .overlay {
+    position: absolute;
+    left: 0;
+  }
+
+  .container,
+  .side-left,
+  .weather-city,
+  .weather-prediksi {
+    height: unset;
+  }
+
+  .weather-city .input-group .btn-close {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .weather-temp {
+    width: 460;
   }
 }
 
@@ -478,10 +551,10 @@ p {
   }
 
   .weather-city .main-weather {
-    width: 40%;
-    position: absolute;
-    top: 17%;
-    left: 10px;
+    width: 70%;
+  }
+  .weather-city .main-weather h3 {
+    position: unset;
   }
 
   .weather-city .main-weather img {
@@ -509,7 +582,7 @@ p {
     width: 50%;
     height: 50px;
     position: absolute;
-    top: 73%;
+    top: 82%;
     left: 45%;
     z-index: 100;
     color: white;
@@ -525,9 +598,13 @@ p {
     margin-top: 30px;
     justify-content: start !important;
     align-items: center !important;
+    position: relative;
   }
+
   .weather-city .city p {
     margin-left: 30px;
+    position: absolute;
+    left: 5%;
   }
 
   .weather-city .city .overlay {
@@ -535,7 +612,7 @@ p {
   }
 
   .weather-prediksi {
-    height: 85vh;
+    height: 110vh;
     padding: 30px 16pt;
   }
 
@@ -594,5 +671,9 @@ p {
   }
   .hightlight h5 {
     font-size: 13px;
+  }
+
+  .weather-temp {
+    position: unset;
   }
 }
